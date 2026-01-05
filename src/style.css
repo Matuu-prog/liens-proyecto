@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Colores personalizados para Liens */
+@theme {
+  --color-liens-cafe: #4A3728;
+  --color-liens-oro: #D4AF37;
+  --color-liens-crema: #F5F5DC;
+}
+
+body {
+  background-color: var(--color-liens-crema);
+  color: var(--color-liens-cafe);
+}

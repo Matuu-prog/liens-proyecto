@@ -1,13 +1,363 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>liens-proyecto</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liens - Cafetería & Eventos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'liens-cafe': '#4A3728',
+            'liens-oro': '#D4AF37',
+            'liens-crema': '#F5F5DC',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#FDFBF7] text-stone-900 font-['Inter']">
+
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-20 items-center">
+      <div class="text-3xl font-serif font-bold tracking-tighter text-liens-cafe underline decoration-liens-oro">LIENS</div>
+      
+      <div class="hidden md:flex items-center space-x-10 font-medium text-sm uppercase tracking-widest">
+        <a href="#cafeteria" class="hover:text-liens-oro transition">Cafetería</a>
+        <a href="#eventos" class="hover:text-liens-oro transition">Eventos</a>
+        <a href="#contacto" class="bg-liens-cafe text-white px-6 py-3 rounded-full hover:bg-stone-800 transition">Contacto</a>
+      </div>
+
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-liens-cafe focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-100 px-4 py-6 space-y-4 shadow-xl">
+    <a href="#cafeteria" class="block text-lg font-medium text-liens-cafe border-b border-stone-50 pb-2">Cafetería</a>
+    <a href="#eventos" class="block text-lg font-medium text-liens-cafe border-b border-stone-50 pb-2">Eventos</a>
+    <a href="#contacto" class="block text-lg font-bold text-amber-700">Contacto</a>
+  </div>
+</nav>
+
+
+  <header class="relative min-h-screen flex items-center justify-center pt-20">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070" 
+           class="w-full h-full object-cover opacity-20 scale-105" alt="Café">
+    </div>
+
+    <div class="relative z-10 text-center px-6 max-w-5xl">
+      <div class="mb-6 inline-flex items-center space-x-2 bg-liens-oro/10 px-4 py-1 rounded-full border border-liens-oro/20">
+        <span class="w-2 h-2 bg-liens-oro rounded-full animate-pulse"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-liens-cafe">Liens Salta</span>
+      </div>
+      
+      <h1 class="text-6xl md:text-8xl font-serif mb-8 text-liens-cafe leading-[1.1]">
+        Momentos que se <br> 
+        <span class="italic font-normal text-amber-700">vuelven eventos.</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Desde el aroma de un café recién tostado en nuestra casa, hasta la barra de tragos más exclusiva para tu fiesta. 
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
+  
+  <a href="#eventos" 
+     class="w-full sm:w-auto px-10 py-5 bg-liens-cafe text-white rounded-full font-bold text-lg shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center uppercase tracking-widest">
+    Planear mi Evento
+  </a>
+
+  <button id="btnReservaMesa" 
+     class="w-full sm:w-auto px-10 py-5 border-2 border-liens-cafe text-liens-cafe rounded-full font-bold text-lg hover:bg-liens-cafe hover:text-white transition-all duration-300 text-center uppercase tracking-widest flex items-center justify-center gap-2">
+    <span>Reservar Mesa</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  </button>
+
+</div>
+
+<p class="mt-8 text-stone-400 text-[10px] uppercase tracking-[0.3em] font-medium">Cafetería de autor • Catering exclusivo</p>
+  </header>
+  <section id="cafeteria" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-serif text-liens-cafe mb-4">Nuestra Casa</h2>
+        <p class="text-stone-500 max-w-xl mx-auto text-lg">
+          Un refugio en el corazón de Salta para disfrutar de la pastelería artesanal y el café de especialidad.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="group cursor-pointer">
+          <div class="relative h-[450px] overflow-hidden rounded-2xl mb-6">
+            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=2070" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Desayunos">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-serif mb-2">Desayunos</h3>
+              <p class="text-sm opacity-90 tracking-widest uppercase">Empieza el día</p>
+            </div>
+          </div>
+          <p class="text-stone-600 leading-relaxed">
+            Desde el clásico café con leche y medialunas hasta opciones brunch con palta y huevos de campo.
+          </p>
+        </div>
+
+        <div class="group cursor-pointer">
+          <div class="relative h-[450px] overflow-hidden rounded-2xl mb-6">
+            <img src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?q=80&w=2070" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Almuerzos">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-serif mb-2">Almuerzos</h3>
+              <p class="text-sm opacity-90 tracking-widest uppercase">Cocina de Autor</p>
+            </div>
+          </div>
+          <p class="text-stone-600 leading-relaxed">
+            Platos frescos, ensaladas gourmet y opciones del día pensadas para un almuerzo ligero y sabroso.
+          </p>
+        </div>
+
+        <div class="group cursor-pointer">
+          <div class="relative h-[450px] overflow-hidden rounded-2xl mb-6">
+            <img src="https://images.unsplash.com/photo-1538220856186-0be0e085984d?q=80&w=2563&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Meriendas">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-serif mb-2">Meriendas</h3>
+              <p class="text-sm opacity-90 tracking-widest uppercase">Tardes en Liens</p>
+            </div>
+          </div>
+          <p class="text-stone-600 leading-relaxed">
+            Nuestra famosa pastelería artesanal acompañada del mejor café de autor de la ciudad.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section id="eventos" class="py-24 bg-stone-900 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        
+        <div class="lg:w-1/2">
+          <span class="text-liens-oro uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Catering Premium</span>
+          <h2 class="text-5xl md:text-6xl font-serif mb-8 leading-tight">
+            Elevamos tus <br> <span class="italic text-stone-400">celebraciones.</span>
+          </h2>
+          <p class="text-stone-400 text-lg mb-10 leading-relaxed">
+            En <strong>Liens Eventos</strong> no solo servimos comida; creamos atmósferas. Nos encargamos de cada detalle gastronómico para que tú solo te preocupes por disfrutar.
+          </p>
+
+          <div class="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="h-12 w-12 bg-white flex items-center justify-center rounded-full">
+                <span class="text-black font-bold text-xs">CM</span>
+              </div>
+              <h4 class="text-xl font-bold tracking-tight uppercase">CuoreMatto <span class="font-light opacity-50">| Barra de Tragos</span></h4>
+            </div>
+            <p class="text-stone-400 text-sm leading-relaxed mb-6">
+              Nuestra alianza exclusiva con CuoreMatto garantiza una barra de coctelería de primer nivel, con estética minimalista en blanco y negro que se adapta a cualquier evento.
+            </p>
+            <div class="flex gap-4">
+              <div class="h-20 w-1/3 rounded-lg bg-stone-800 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=500" class="w-full h-full object-cover grayscale" alt="Trago 1">
+              </div>
+              <div class="h-20 w-1/3 rounded-lg bg-stone-800 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500" class="w-full h-full object-cover grayscale" alt="Trago 2">
+              </div>
+              <div class="h-20 w-1/3 rounded-lg bg-stone-800 overflow-hidden border border-white/20 flex items-center justify-center">
+                <span class="text-[10px] uppercase font-bold tracking-tighter italic">+ Cocktails</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2 relative">
+          <div class="relative z-10 rounded-2xl overflow-hidden border-8 border-stone-800 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070" 
+                 class="w-full h-[600px] object-cover" alt="Catering Liens">
+          </div>
+          <div class="absolute -top-10 -right-10 w-64 h-64 bg-liens-oro/10 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 border border-liens-oro/30 rounded-full"></div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 border-t border-white/10 pt-16">
+        <div class="text-center">
+            <h5 class="font-serif text-2xl text-liens-oro mb-2">Sociales</h5>
+            <p class="text-xs text-stone-500 uppercase tracking-widest">Bodas y Cumpleaños</p>
+        </div>
+        <div class="text-center">
+            <h5 class="font-serif text-2xl text-liens-oro mb-2">Corporativos</h5>
+            <p class="text-xs text-stone-500 uppercase tracking-widest">Lanzamientos y Cenas</p>
+        </div>
+        <div class="text-center">
+            <h5 class="font-serif text-2xl text-liens-oro mb-2">Finger Food</h5>
+            <p class="text-xs text-stone-500 uppercase tracking-widest">Recepciones ágiles</p>
+        </div>
+        <div class="text-center">
+            <h5 class="font-serif text-2xl text-liens-oro mb-2">Personalizado</h5>
+            <p class="text-xs text-stone-500 uppercase tracking-widest">Menú a medida</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="contacto" class="py-24 bg-[#FDFBF7]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-[3rem] shadow-xl overflow-hidden border border-stone-100">
+        <div class="flex flex-col lg:flex-row">
+          
+          <div class="lg:w-1/2 bg-liens-cafe p-12 md:p-20 text-white flex flex-col justify-between">
+            <div>
+              <h2 class="text-4xl md:text-5xl font-serif mb-8">Hablemos de tu próximo momento.</h2>
+              <p class="text-stone-300 mb-12 text-lg leading-relaxed">
+                Ya sea para un café por la mañana o para el evento de tus sueños, estamos aquí para hacerlo realidad.
+              </p>
+              
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                    <span class="text-liens-oro text-xl">📍</span>
+                  </div>
+                  <p class="text-stone-200">Salta Capital, Argentina</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                    <span class="text-liens-oro text-xl">📱</span>
+                  </div>
+                  <a href="https://wa.me/tu-numero" target="_blank" class="text-stone-200 hover:text-white transition">+54 387 000-0000</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/10">
+              <p class="text-xs uppercase tracking-[0.3em] text-liens-oro mb-4 font-bold">Seguinos</p>
+              <div class="flex gap-6">
+                <a href="#" class="hover:opacity-70 transition">Instagram</a>
+                <a href="#" class="hover:opacity-70 transition">Facebook</a>
+                <a href="#" class="hover:opacity-70 transition text-stone-400">CuoreMatto ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 p-12 md:p-20 bg-white">
+            <form action="#" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs uppercase tracking-widest font-bold text-stone-400 mb-2">Nombre</label>
+                  <input id="form-nombre"type="text" class="w-full border-b border-stone-200 py-3 focus:border-liens-cafe outline-none transition bg-transparent" placeholder="Tu nombre">
+                </div>
+                <div>
+                  <label class="block text-xs uppercase tracking-widest font-bold text-stone-400 mb-2">Servicio</label>
+                  <select id="form-servicio" class="w-full border-b border-stone-200 py-3 focus:border-liens-cafe outline-none transition bg-transparent">
+                    <option>Catering Eventos</option>
+                    <option>Reserva Cafetería</option>
+                    <option>Barra CuoreMatto</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-widest font-bold text-stone-400 mb-2">Mensaje</label>
+                <textarea id="form-mensaje" rows="4" class="w-full border-b border-stone-200 py-3 focus:border-liens-cafe outline-none transition bg-transparent resize-none" placeholder="Contanos sobre tu idea..."></textarea>
+              </div>
+              <button id="btnWhatsapp" type="button" class="w-full bg-liens-cafe text-white py-5 rounded-xl font-bold uppercase tracking-widest hover:bg-stone-800 transition-all shadow-lg">
+  Enviar por WhatsApp
+</button>
+
+              <p class="text-center text-stone-400 text-xs mt-4">
+                O si preferís algo rápido: <a href="#" class="text-green-600 font-bold underline">Escribinos por WhatsApp</a>
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-stone-400 text-sm">
+    <p>&copy; 2026 LIENS Salta. Todos los derechos reservados.</p>
+  </footer>
+<script>
+  document.getElementById('btnWhatsapp').addEventListener('click', function() {
+    // 1. Capturamos los datos y limpiamos espacios en blanco
+    const nombre = document.getElementById('form-nombre').value.trim();
+    const servicio = document.getElementById('form-servicio').value;
+    const mensaje = document.getElementById('form-mensaje').value.trim();
+    const numero = "5493876036672"; 
+
+    // 2. Validación básica
+    if(nombre === "") {
+      alert("Por favor, ingresa tu nombre para que sepamos quién nos escribe.");
+      return;
+    }
+
+    // 3. Armamos el texto usando encodeURIComponent para manejar caracteres especiales y saltos de línea
+    // Nota: El asterisco pegado a la palabra (ej: *Nombre:*) activa la negrita en WhatsApp
+    let mensajeFinal = "Hola Liens! 👋 Quisiera hacer una consulta:%0A%0A";
+    mensajeFinal += "*Nombre:* " + nombre + "%0A";
+    mensajeFinal += "*Servicio:* " + servicio + "%0A";
+    
+    if(mensaje !== "") {
+      mensajeFinal += "*Mensaje:* " + mensaje;
+    }
+
+    // 4. Creamos el enlace final
+    const url = `https://wa.me/${numero}?text=${mensajeFinal}`;
+
+    // 5. Abrimos en una pestaña nueva
+    window.open(url, '_blank');
+  });
+  
+  // Lógica para el Menú Hamburguesa
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
+// Cerrar el menú automáticamente al hacer clic en un enlace
+const navLinks = mobileMenu.querySelectorAll('a');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+});
+
+// Lógica para Reservar Mesa desde el Hero
+document.getElementById('btnReservaMesa').addEventListener('click', function() {
+    const numero = "5493876036672";
+    const mensajeReserva = "Hola Liens! 👋 Quisiera consultar por una reserva en la cafetería para estos días.";
+    
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensajeReserva)}`;
+    window.open(url, '_blank');
+});
+
+</script>
+
+
+</body>
 </html>
